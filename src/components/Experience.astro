@@ -27,7 +27,7 @@ const roles = [
   },
   {
     company: "Clutch Analytics",
-    role: "Software Engineer → Junior Software Developer",
+    role: "Junior Software Developer → Software Engineer",
     period: "Jul 2018 — Mar 2020",
     location: "Austin, TX",
     tags: ["React.js", "Node.js", "MongoDB", "Express"],
@@ -43,7 +43,7 @@ const roles = [
 <section id="experience" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
   <div class="mx-auto max-w-5xl px-6">
     <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">02 · Experience</p>
-    <h2 class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+    <h2 data-split class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
       Where I've built things.
     </h2>
 
@@ -52,7 +52,7 @@ const roles = [
         roles.map((job) => (
           <div class="reveal relative pl-8 sm:pl-10">
             <span class="absolute left-0 top-1 h-3 w-3 rounded-full bg-accent-500" />
-            <span class="absolute left-[5px] top-4 bottom-[-2.5rem] w-px bg-ink-200 last:hidden dark:bg-ink-800" />
+            <span class="timeline-line absolute left-[5px] top-4 bottom-[-2.5rem] w-px bg-ink-200 last:hidden dark:bg-ink-800" />
 
             <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
               <h3 class="text-lg font-bold text-ink-950 dark:text-white">

@@ -9,6 +9,7 @@ const projects = [
       "Refactored core Zenoss product features into standalone, reusable micro-frontends to support a strategic platform partnership, and migrated several pages to a shared query-criteria structure to unify data flow across APIs.",
     tags: ["Vue.js", "Micro-frontends", "GraphQL"],
     link: null,
+    featured: true,
   },
   {
     title: "Inventory query builder",
@@ -42,6 +43,24 @@ const activeTag = ref("All");
 const filtered = computed(() =>
   activeTag.value === "All" ? projects : projects.filter((p) => p.tags.includes(activeTag.value))
 );
+
+const canTilt =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: fine)").matches &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function onCardMove(event) {
+  if (!canTilt) return;
+  const card = event.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const px = (event.clientX - rect.left) / rect.width - 0.5;
+  const py = (event.clientY - rect.top) / rect.height - 0.5;
+  card.style.transform = `perspective(800px) rotateX(${py * -6}deg) rotateY(${px * 6}deg)`;
+}
+
+function onCardLeave(event) {
+  event.currentTarget.style.transform = "";
+}
 </script>
 
 <template>
@@ -76,7 +95,10 @@ const filtered = computed(() =>
       <article
         v-for="project in filtered"
         :key="project.title"
-        class="group rounded-2xl border border-ink-200 bg-ink-100/30 p-6 transition-colors hover:border-accent-500/50 dark:border-ink-800 dark:bg-ink-900/30"
+        @pointermove="onCardMove"
+        @pointerleave="onCardLeave"
+        class="gradient-border group rounded-2xl border border-ink-200 bg-ink-100/30 p-6 transition-[transform,border-color] duration-150 ease-out will-change-transform hover:border-accent-500/50 dark:border-ink-800 dark:bg-ink-900/30"
+        :class="project.featured ? 'sm:col-span-2' : ''"
       >
         <p class="font-mono text-xs text-ink-500 dark:text-ink-400">{{ project.company }}</p>
         <h3 class="mt-1 text-lg font-bold text-ink-950 dark:text-white">{{ project.title }}</h3>

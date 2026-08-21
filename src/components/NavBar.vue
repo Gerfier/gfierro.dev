@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const links = [
   { href: "#about", label: "About" },
@@ -12,11 +12,33 @@ const links = [
 const menuOpen = ref(false);
 const isDark = ref(true);
 const scrolled = ref(false);
+const activeSection = ref("");
+const themeBtn = ref(null);
 
-function toggleTheme() {
-  isDark.value = !isDark.value;
-  document.documentElement.classList.toggle("dark", isDark.value);
-  localStorage.setItem("theme", isDark.value ? "dark" : "light");
+let sectionObserver;
+
+function toggleTheme(event) {
+  const next = !isDark.value;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const apply = () => {
+    isDark.value = next;
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
+
+  if (reduceMotion || !document.startViewTransition) {
+    apply();
+    return;
+  }
+
+  const rect = (event?.currentTarget ?? themeBtn.value)?.getBoundingClientRect();
+  if (rect) {
+    document.documentElement.style.setProperty("--toggle-x", `${rect.left + rect.width / 2}px`);
+    document.documentElement.style.setProperty("--toggle-y", `${rect.top + rect.height / 2}px`);
+  }
+
+  document.startViewTransition(apply);
 }
 
 function closeMenu() {
@@ -25,15 +47,42 @@ function closeMenu() {
 
 onMounted(() => {
   isDark.value = document.documentElement.classList.contains("dark");
+
   const onScroll = () => {
     scrolled.value = window.scrollY > 8;
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  const sections = links
+    .map((link) => document.querySelector(link.href))
+    .filter(Boolean);
+
+  sectionObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          activeSection.value = `#${entry.target.id}`;
+        }
+      }
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+  sections.forEach((section) => sectionObserver.observe(section));
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("scroll", onScroll);
+    sectionObserver?.disconnect();
+  });
 });
 </script>
 
 <template>
+  <div
+    class="scroll-progress fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-accent-500 to-violet-500"
+    aria-hidden="true"
+  ></div>
+
   <header
     class="fixed inset-x-0 top-0 z-50 transition-colors duration-300"
     :class="scrolled ? 'bg-ink-50/80 dark:bg-ink-950/80 backdrop-blur-md border-b border-ink-200/60 dark:border-ink-800/60' : ''"
@@ -47,15 +96,25 @@ onMounted(() => {
         <li v-for="link in links" :key="link.href">
           <a
             :href="link.href"
-            class="text-sm font-medium text-ink-600 transition-colors hover:text-accent-500 dark:text-ink-300 dark:hover:text-accent-400"
+            class="relative text-sm font-medium transition-colors"
+            :class="
+              activeSection === link.href
+                ? 'text-accent-600 dark:text-accent-400'
+                : 'text-ink-600 hover:text-accent-500 dark:text-ink-300 dark:hover:text-accent-400'
+            "
           >
             {{ link.label }}
+            <span
+              v-if="activeSection === link.href"
+              class="absolute -bottom-1.5 left-0 h-0.5 w-full rounded-full bg-accent-500"
+            />
           </a>
         </li>
       </ul>
 
       <div class="flex items-center gap-3">
         <button
+          ref="themeBtn"
           @click="toggleTheme"
           type="button"
           aria-label="Toggle color theme"
@@ -102,7 +161,12 @@ onMounted(() => {
           <a
             :href="link.href"
             @click="closeMenu"
-            class="block rounded-xl px-4 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-accent-500/10 hover:text-accent-500 dark:text-ink-200"
+            class="block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
+            :class="
+              activeSection === link.href
+                ? 'bg-accent-500/10 text-accent-600 dark:text-accent-400'
+                : 'text-ink-700 hover:bg-accent-500/10 hover:text-accent-500 dark:text-ink-200'
+            "
           >
             {{ link.label }}
           </a>

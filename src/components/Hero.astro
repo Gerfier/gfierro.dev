@@ -2,10 +2,19 @@
 ---
 
 <section id="top" class="noise-bg relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-  <div class="mx-auto max-w-5xl px-6">
+  <div id="hero-spotlight" class="spotlight"></div>
+
+  <div class="relative mx-auto max-w-5xl px-6">
+    <div
+      class="reveal mb-8 grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-accent-500 to-violet-600 font-display text-xl font-bold text-white shadow-lg shadow-accent-500/20 sm:h-20 sm:w-20 sm:text-2xl"
+      aria-hidden="true"
+    >
+      GF
+    </div>
+
     <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">Hi, I'm</p>
 
-    <h1 class="reveal mt-3 text-4xl font-extrabold tracking-tight text-ink-950 sm:text-5xl md:text-6xl dark:text-white">
+    <h1 data-split class="reveal mt-3 text-4xl font-extrabold tracking-tight text-ink-950 sm:text-5xl md:text-6xl dark:text-white">
       Gerard Fierro
     </h1>
 
@@ -23,16 +32,20 @@
 
     <div class="reveal mt-9 flex flex-wrap items-center gap-4">
       <a
-        href="#projects"
-        class="rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-950/10 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-ink-950"
+        href={`${import.meta.env.BASE_URL}resume.pdf`}
+        download
+        class="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-950/10 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-ink-950"
       >
-        View my work
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+        </svg>
+        Download résumé
       </a>
       <a
-        href="#contact"
+        href="#projects"
         class="rounded-full border border-ink-300 px-6 py-3 text-sm font-semibold text-ink-800 transition-colors hover:border-accent-500 hover:text-accent-600 dark:border-ink-700 dark:text-ink-200 dark:hover:border-accent-400 dark:hover:text-accent-400"
       >
-        Get in touch
+        View my work
       </a>
     </div>
 
@@ -58,3 +71,20 @@
     </div>
   </div>
 </section>
+
+<script>
+  const spotlight = document.getElementById("hero-spotlight");
+  const canHover = window.matchMedia("(pointer: fine)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (spotlight && canHover && !reduceMotion) {
+    const section = spotlight.closest("section");
+    section?.addEventListener("pointermove", (event) => {
+      const rect = section.getBoundingClientRect();
+      spotlight.style.setProperty("--x", `${event.clientX - rect.left}px`);
+      spotlight.style.setProperty("--y", `${event.clientY - rect.top}px`);
+      spotlight.classList.add("is-active");
+    });
+    section?.addEventListener("pointerleave", () => spotlight.classList.remove("is-active"));
+  }
+</script>

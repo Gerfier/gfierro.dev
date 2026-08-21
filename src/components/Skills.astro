@@ -21,10 +21,30 @@ const groups = [
 <section id="skills" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
   <div class="mx-auto max-w-5xl px-6">
     <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">03 · Skills</p>
-    <h2 class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+    <h2 data-split class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
       Tools I reach for.
     </h2>
+  </div>
 
+  <div class="marquee-group reveal mt-10 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
+    <div class="marquee-track flex w-max gap-3">
+      {
+        Array.from({ length: 2 }).map(() => (
+          <>
+            {groups
+              .flatMap((g) => g.items)
+              .map((item) => (
+                <span class="flex-shrink-0 rounded-full border border-ink-200 bg-ink-100/60 px-4 py-2 font-mono text-sm text-ink-600 dark:border-ink-800 dark:bg-ink-900/40 dark:text-ink-300">
+                  {item}
+                </span>
+              ))}
+          </>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-5xl px-6">
     <div class="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
       {
         groups.map((group) => (
