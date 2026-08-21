@@ -35,6 +35,14 @@ const projects = [
     tags: ["Vue.js", "Vite", "Pinia"],
     link: null,
   },
+  {
+    title: "Camp counselor operations app",
+    company: "Personal project",
+    description:
+      "Built a full-stack scheduling, points, messaging, and live map app for a youth summer camp's counselor and director staff, end to end. Realtime updates via Socket.io, an installable offline-friendly PWA, and push notifications for schedule changes — deployed as a single Docker/Fly.io service with a persistent volume.",
+    tags: ["React", "Node.js", "Socket.io", "PWA"],
+    link: null,
+  },
 ];
 
 const allTags = computed(() => ["All", ...new Set(projects.flatMap((p) => p.tags))]);
@@ -118,8 +126,9 @@ function onCardLeave(event) {
     </TransitionGroup>
 
     <p class="mt-8 text-sm text-ink-500 dark:text-ink-400">
-      These summarize work from my professional roles under NDA — write-ups and screenshots for
-      personal / open-source projects go here as I publish them.
+      The Virtana/Zenoss work summarizes professional roles under NDA, so no code links there. The
+      camp app is a personal project — its source stays private out of respect for the organization's
+      branding and facility details, but I'm happy to walk through the code in an interview.
     </p>
   </div>
 </template>
