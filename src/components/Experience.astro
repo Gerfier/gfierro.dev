@@ -1,0 +1,86 @@
+---
+const roles = [
+  {
+    company: "Virtana",
+    role: "Senior Software Engineer",
+    period: "Apr 2025 — Present",
+    location: "Remote",
+    tags: ["Micro-frontends", "Vue.js", "GraphQL"],
+    bullets: [
+      "Decoupled Zenoss UI components to support a strategic partnership with Virtana, refactoring core product features into standalone, reusable micro-frontends.",
+      "Led migration to a common query criteria structure across pages, streamlining data flow between multiple APIs and eliminating redundant conversion logic and edge-case errors.",
+    ],
+  },
+  {
+    company: "Zenoss",
+    role: "Software Engineer",
+    period: "Apr 2020 — Apr 2025",
+    location: "Austin, TX",
+    tags: ["Vue 2 → 3", "Vuetify", "Pinia", "Vite", "GraphQL"],
+    bullets: [
+      "Built reusable components for an IT monitoring cloud application using Vue.js (2 & 3), Vuetify, and GraphQL.",
+      "Designed key features: an events page with graph/pie-chart visualizations, a query-builder inventory page with query-saving, a maintenance-window scheduler, and gauge-chart dashboard tiles.",
+      "Co-led the Vue 2 → 3 migration, moving Webpack → Vite and Vuex → Pinia to improve build speed and cut bundle size.",
+      "Drove test-driven development with a 60% minimum coverage bar per component, using Vue Test Utils, Chai, and Mocha.",
+      "Mentored junior developers on the codebase, best practices, and pair programming.",
+    ],
+  },
+  {
+    company: "Clutch Analytics",
+    role: "Software Engineer → Junior Software Developer",
+    period: "Jul 2018 — Mar 2020",
+    location: "Austin, TX",
+    tags: ["React.js", "Node.js", "MongoDB", "Express"],
+    bullets: [
+      "Built reusable components for a multi-state insurance web application using React.js.",
+      "Worked across the stack with ES6, HTML5, CSS3, jQuery, Node.js, Express, Mongoose, and MongoDB; authored RESTful APIs documented with OpenAPI (Swagger).",
+      "Contributed as part of a 5–7 person Agile team, improving legacy JavaScript performance and readability.",
+    ],
+  },
+];
+---
+
+<section id="experience" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">02 · Experience</p>
+    <h2 class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+      Where I've built things.
+    </h2>
+
+    <div class="mt-14 space-y-10">
+      {
+        roles.map((job) => (
+          <div class="reveal relative pl-8 sm:pl-10">
+            <span class="absolute left-0 top-1 h-3 w-3 rounded-full bg-accent-500" />
+            <span class="absolute left-[5px] top-4 bottom-[-2.5rem] w-px bg-ink-200 last:hidden dark:bg-ink-800" />
+
+            <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <h3 class="text-lg font-bold text-ink-950 dark:text-white">
+                {job.role} · <span class="text-accent-600 dark:text-accent-400">{job.company}</span>
+              </h3>
+              <p class="font-mono text-xs text-ink-500 dark:text-ink-400">{job.period}</p>
+            </div>
+            <p class="text-sm text-ink-500 dark:text-ink-400">{job.location}</p>
+
+            <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
+              {job.bullets.map((bullet) => (
+                <li class="flex gap-2">
+                  <span class="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-ink-400" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+              {job.tags.map((tag) => (
+                <span class="rounded-full bg-ink-100 px-3 py-1 text-xs font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

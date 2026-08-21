@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.vue";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Skills from "../components/Skills.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <NavBar client:load />
+  <main>
+    <Hero />
+    <About />
+    <Experience />
+    <Skills />
+    <ProjectsSection />
+    <Contact />
+  </main>
+</Layout>

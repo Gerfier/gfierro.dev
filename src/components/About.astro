@@ -1,0 +1,50 @@
+---
+const stats = [
+  { value: "7+", label: "years in front-end engineering" },
+  { value: "2", label: "major Vue 2 → 3 migrations led" },
+  { value: "60%+", label: "test coverage standard per component" },
+];
+---
+
+<section id="about" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="grid gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
+      <div class="reveal">
+        <p class="font-mono text-sm text-accent-600 dark:text-accent-400">01 · About</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+          Detail-oriented, and allergic to duplicated code.
+        </h2>
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-ink-600 dark:text-ink-300">
+          <p>
+            I'm a Senior Software Engineer based in Austin, TX, currently at
+            <span class="font-semibold text-ink-900 dark:text-ink-100">Virtana</span>
+            (following its acquisition of Zenoss), where I work on decoupling
+            monolithic UI into standalone, reusable micro-frontends.
+          </p>
+          <p>
+            Over the last 7 years I've focused on Vue.js — building the
+            component systems, data layers, and dashboards behind an IT
+            monitoring platform used to visualize infrastructure at scale.
+            I like solving problems that live at the intersection of
+            performance, maintainability, and the details a user actually
+            notices.
+          </p>
+          <p>
+            B.S. in Computer Science, Texas Tech University.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal grid gap-4 self-start sm:grid-cols-3 md:grid-cols-1">
+        {
+          stats.map((stat) => (
+            <div class="rounded-2xl border border-ink-200 bg-ink-100/40 p-5 dark:border-ink-800 dark:bg-ink-900/40">
+              <p class="text-3xl font-extrabold gradient-text">{stat.value}</p>
+              <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

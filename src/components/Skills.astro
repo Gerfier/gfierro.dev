@@ -1,0 +1,54 @@
+---
+const groups = [
+  {
+    label: "Proficient",
+    accent: true,
+    items: ["JavaScript (ES6+)", "Vue.js 2 & 3", "Vuetify", "Vuex", "Pinia", "GraphQL", "HTML5", "CSS3", "Vite", "Git", "Agile / Scrum"],
+  },
+  {
+    label: "Familiar",
+    accent: false,
+    items: ["React", "Redux", "Node.js", "Express", "MongoDB", "Go", "OpenAPI / Swagger"],
+  },
+  {
+    label: "Testing",
+    accent: false,
+    items: ["Vue Test Utils", "Vitest", "Mocha", "Chai", "TDD"],
+  },
+];
+---
+
+<section id="skills" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">03 · Skills</p>
+    <h2 class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+      Tools I reach for.
+    </h2>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+      {
+        groups.map((group) => (
+          <div class="reveal">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
+              {group.label}
+            </h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  class:list={[
+                    "rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
+                    group.accent
+                      ? "border-accent-500/30 bg-accent-500/10 text-accent-700 dark:border-accent-400/30 dark:bg-accent-400/10 dark:text-accent-300"
+                      : "border-ink-200 bg-ink-100/60 text-ink-600 dark:border-ink-800 dark:bg-ink-900/40 dark:text-ink-300",
+                  ]}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
