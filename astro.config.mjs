@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://Gerfier.github.io',
-  base: '/gfierro.dev',
+  base: '/gfierro.dev/',
   integrations: [vue(), sitemap()],
 
   vite: {
