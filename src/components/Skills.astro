@@ -1,14 +1,32 @@
 ---
+const frameworks = [
+  {
+    name: "Vue.js (2 & 3)",
+    level: 5,
+    note: "Primary framework — 8+ years across component systems, state, and build tooling.",
+  },
+  {
+    name: "React",
+    level: 3,
+    note: "Comfortable shipping production components and features when a project calls for it.",
+  },
+];
+
 const groups = [
   {
     label: "Proficient",
     accent: true,
-    items: ["JavaScript (ES6+)", "Vue.js 2 & 3", "Vuetify", "Vuex", "Pinia", "GraphQL", "HTML5", "CSS3", "Vite", "Git", "Agile / Scrum"],
+    items: ["JavaScript (ES6+)", "Vuetify", "Vuex", "Pinia", "GraphQL", "HTML5", "CSS3", "Vite", "Git", "Agile / Scrum"],
+  },
+  {
+    label: "AI-assisted development",
+    accent: true,
+    items: ["Claude Code", "GitHub Copilot", "Gemini"],
   },
   {
     label: "Familiar",
     accent: false,
-    items: ["React", "Redux", "Node.js", "Express", "MongoDB", "Go", "OpenAPI / Swagger"],
+    items: ["Redux", "Node.js", "Express", "MongoDB", "Go", "OpenAPI / Swagger"],
   },
   {
     label: "Testing",
@@ -16,6 +34,8 @@ const groups = [
     items: ["Vue Test Utils", "Vitest", "Mocha", "Chai", "TDD"],
   },
 ];
+
+const marqueeItems = [...frameworks.map((f) => f.name), ...groups.flatMap((g) => g.items)];
 ---
 
 <section id="skills" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
@@ -24,6 +44,31 @@ const groups = [
     <h2 data-split class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
       Tools I reach for.
     </h2>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {
+        frameworks.map((fw) => (
+          <div class="reveal rounded-2xl border border-ink-200 bg-ink-100/40 p-5 dark:border-ink-800 dark:bg-ink-900/40">
+            <div class="flex items-center justify-between">
+              <p class="font-display text-base font-bold text-ink-950 dark:text-white">{fw.name}</p>
+              <div class="flex gap-1" role="img" aria-label={`Proficiency: ${fw.level} out of 5`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span
+                    class:list={[
+                      "h-2 w-2 rounded-full",
+                      i < fw.level
+                        ? "bg-gradient-to-br from-accent-500 to-violet-500"
+                        : "bg-ink-200 dark:bg-ink-800",
+                    ]}
+                  />
+                ))}
+              </div>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{fw.note}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 
   <div class="marquee-group reveal mt-10 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
@@ -31,13 +76,11 @@ const groups = [
       {
         Array.from({ length: 2 }).map(() => (
           <>
-            {groups
-              .flatMap((g) => g.items)
-              .map((item) => (
-                <span class="flex-shrink-0 rounded-full border border-ink-200 bg-ink-100/60 px-4 py-2 font-mono text-sm text-ink-600 dark:border-ink-800 dark:bg-ink-900/40 dark:text-ink-300">
-                  {item}
-                </span>
-              ))}
+            {marqueeItems.map((item) => (
+              <span class="flex-shrink-0 rounded-full border border-ink-200 bg-ink-100/60 px-4 py-2 font-mono text-sm text-ink-600 dark:border-ink-800 dark:bg-ink-900/40 dark:text-ink-300">
+                {item}
+              </span>
+            ))}
           </>
         ))
       }
