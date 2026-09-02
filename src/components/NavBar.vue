@@ -48,6 +48,11 @@ function toggleLang() {
   document.documentElement.setAttribute("data-lang", next);
   document.documentElement.setAttribute("lang", next);
   localStorage.setItem("lang", next);
+
+  document.title =
+    next === "es"
+      ? document.title.replace("Gerard Fierro", "Gerardo Fierro").replace("Senior Software Engineer", "Ingeniero de Software Senior")
+      : document.title.replace("Gerardo Fierro", "Gerard Fierro").replace("Ingeniero de Software Senior", "Senior Software Engineer");
 }
 
 function closeMenu() {
