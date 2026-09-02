@@ -3,33 +3,39 @@ const frameworks = [
   {
     name: "Vue.js (2 & 3)",
     level: 5,
-    note: "Primary framework — 8+ years across component systems, state, and build tooling.",
+    note: {
+      en: "Primary framework — 8+ years across component systems, state, and build tooling.",
+      es: "Framework principal — más de 8 años en sistemas de componentes, manejo de estado y herramientas de build.",
+    },
   },
   {
     name: "React",
     level: 3,
-    note: "Comfortable shipping production components and features when a project calls for it.",
+    note: {
+      en: "Comfortable shipping production components and features when a project calls for it.",
+      es: "Cómodo llevando componentes y funciones a producción cuando un proyecto lo requiere.",
+    },
   },
 ];
 
 const groups = [
   {
-    label: "Proficient",
+    label: { en: "Proficient", es: "Dominio" },
     accent: true,
     items: ["JavaScript (ES6+)", "Vuetify", "Vuex", "Pinia", "GraphQL", "HTML5", "CSS3", "Vite", "Git", "Agile / Scrum"],
   },
   {
-    label: "AI-assisted development",
+    label: { en: "AI-assisted development", es: "Desarrollo asistido por IA" },
     accent: true,
     items: ["Claude Code", "GitHub Copilot", "Gemini"],
   },
   {
-    label: "Familiar",
+    label: { en: "Familiar", es: "Conocimiento" },
     accent: false,
     items: ["Redux", "Node.js", "Express", "MongoDB", "Go", "OpenAPI / Swagger"],
   },
   {
-    label: "Testing",
+    label: { en: "Testing", es: "Pruebas" },
     accent: false,
     items: ["Vue Test Utils", "Vitest", "Mocha", "Chai", "TDD"],
   },
@@ -40,9 +46,15 @@ const marqueeItems = [...frameworks.map((f) => f.name), ...groups.flatMap((g) =>
 
 <section id="skills" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
   <div class="mx-auto max-w-5xl px-6">
-    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">03 · Skills</p>
-    <h2 data-split class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">
+      <span data-i18n-lang="en" class="i18n-inline">03 · Skills</span>
+      <span data-i18n-lang="es" class="i18n-inline">03 · Habilidades</span>
+    </p>
+    <h2 data-split data-i18n-lang="en" class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
       Tools I reach for.
+    </h2>
+    <h2 data-split data-i18n-lang="es" class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+      Herramientas que uso.
     </h2>
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2">
@@ -64,7 +76,10 @@ const marqueeItems = [...frameworks.map((f) => f.name), ...groups.flatMap((g) =>
                 ))}
               </div>
             </div>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{fw.note}</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
+              <span data-i18n-lang="en" class="i18n-inline">{fw.note.en}</span>
+              <span data-i18n-lang="es" class="i18n-inline">{fw.note.es}</span>
+            </p>
           </div>
         ))
       }
@@ -93,7 +108,8 @@ const marqueeItems = [...frameworks.map((f) => f.name), ...groups.flatMap((g) =>
         groups.map((group) => (
           <div class="reveal">
             <h3 class="text-sm font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
-              {group.label}
+              <span data-i18n-lang="en" class="i18n-inline">{group.label.en}</span>
+              <span data-i18n-lang="es" class="i18n-inline">{group.label.es}</span>
             </h3>
             <div class="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (

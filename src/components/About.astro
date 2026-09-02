@@ -1,8 +1,17 @@
 ---
 const stats = [
-  { value: "8+", label: "years in front-end engineering" },
-  { value: "2", label: "major Vue 2 → 3 migrations led" },
-  { value: "60%+", label: "test coverage standard per component" },
+  {
+    value: "8+",
+    label: { en: "years in front-end engineering", es: "años en ingeniería front-end" },
+  },
+  {
+    value: "2",
+    label: { en: "major Vue 2 → 3 migrations led", es: "migraciones grandes de Vue 2 → 3 lideradas" },
+  },
+  {
+    value: "60%+",
+    label: { en: "test coverage standard per component", es: "cobertura de pruebas mínima por componente" },
+  },
 ];
 ---
 
@@ -10,13 +19,19 @@ const stats = [
   <div class="mx-auto max-w-5xl px-6">
     <div class="grid gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
       <div class="reveal">
-        <p class="font-mono text-sm text-accent-600 dark:text-accent-400">01 · About</p>
-        <h2 data-split class="mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+        <p class="font-mono text-sm text-accent-600 dark:text-accent-400">
+          <span data-i18n-lang="en" class="i18n-inline">01 · About</span>
+          <span data-i18n-lang="es" class="i18n-inline">01 · Acerca de</span>
+        </p>
+        <h2 data-split data-i18n-lang="en" class="mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
           Detail-oriented, and allergic to duplicated code.
         </h2>
-        <div class="mt-6 space-y-4 text-base leading-relaxed text-ink-600 dark:text-ink-300">
+        <h2 data-split data-i18n-lang="es" class="mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+          Meticuloso, y alérgico al código duplicado.
+        </h2>
+        <div data-i18n-lang="en" class="mt-6 space-y-4 text-base leading-relaxed text-ink-600 dark:text-ink-300">
           <p>
-            I'm a Senior Software Engineer based in Austin, TX, currently at{" "}
+            I'm a Senior Software Engineer based in Mexico, currently at{" "}
             <span class="font-semibold text-ink-900 dark:text-ink-100">Virtana</span>{" "}
             (following its acquisition of Zenoss), where I work on decoupling
             monolithic UI into standalone, reusable micro-frontends.
@@ -47,6 +62,40 @@ const stats = [
             spending time connecting with people and building community.
           </p>
         </div>
+        <div data-i18n-lang="es" class="mt-6 space-y-4 text-base leading-relaxed text-ink-600 dark:text-ink-300">
+          <p>
+            Soy Ingeniero de Software Senior radicado en México, actualmente en{" "}
+            <span class="font-semibold text-ink-900 dark:text-ink-100">Virtana</span>{" "}
+            (tras su adquisición de Zenoss), donde trabajo desacoplando UI
+            monolítica en micro-frontends independientes y reutilizables.
+          </p>
+          <p>
+            En los últimos 8 años me he enfocado principalmente en Vue.js —
+            construyendo los sistemas de componentes, capas de datos y
+            dashboards detrás de una plataforma de monitoreo de IT usada para
+            visualizar infraestructura a gran escala — y me siento igual de
+            cómodo llevando React a producción cuando un proyecto lo requiere.
+            Me gusta resolver problemas en la intersección de rendimiento,
+            mantenibilidad y los detalles que un usuario realmente nota.
+          </p>
+          <p>
+            También creo firmemente en que los equipos de ingeniería deben
+            adoptar herramientas de IA y automatizar donde tenga sentido.
+            Empecé integrando GitHub Copilot y Gemini en mi día a día, y desde
+            entonces he migrado la mayor parte de mi flujo de trabajo a
+            Claude — usándolo para planear, revisar código y detectar casos
+            límite antes, no solo como autocompletado.
+          </p>
+          <p>
+            Licenciatura en Ciencias de la Computación, Texas Tech University.
+          </p>
+          <p>
+            Cuando no estoy construyendo software, normalmente estoy
+            preparando una buena taza de café, leyendo otro libro, saliendo al
+            aire libre, o pasando tiempo conectando con otras personas y
+            construyendo comunidad.
+          </p>
+        </div>
       </div>
 
       <div class="reveal grid gap-4 self-start sm:grid-cols-3 md:grid-cols-1">
@@ -54,7 +103,10 @@ const stats = [
           stats.map((stat) => (
             <div class="rounded-2xl border border-ink-200 bg-ink-100/40 p-5 dark:border-ink-800 dark:bg-ink-900/40">
               <p class="text-3xl font-extrabold gradient-text">{stat.value}</p>
-              <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{stat.label}</p>
+              <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">
+                <span data-i18n-lang="en" class="i18n-inline">{stat.label.en}</span>
+                <span data-i18n-lang="es" class="i18n-inline">{stat.label.es}</span>
+              </p>
             </div>
           ))
         }

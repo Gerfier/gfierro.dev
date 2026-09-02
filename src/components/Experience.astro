@@ -2,40 +2,92 @@
 const roles = [
   {
     company: "Virtana",
-    role: "Senior Software Engineer",
-    period: "Apr 2025 — Present",
-    location: "Remote",
-    tags: ["Micro-frontends", "Vue.js", "GraphQL", "AI tooling"],
+    role: { en: "Senior Software Engineer", es: "Ingeniero de Software Senior" },
+    period: { en: "Apr 2025 — Present", es: "Abr 2025 — Presente" },
+    location: { en: "Remote", es: "Remoto" },
+    tags: [
+      { en: "Micro-frontends", es: "Micro-frontends" },
+      { en: "Vue.js", es: "Vue.js" },
+      { en: "GraphQL", es: "GraphQL" },
+      { en: "AI tooling", es: "Herramientas de IA" },
+    ],
     bullets: [
-      "Decoupled Zenoss UI components to support a strategic partnership with Virtana, refactoring core product features into standalone, reusable micro-frontends.",
-      "Led migration to a common query criteria structure across pages, streamlining data flow between multiple APIs and eliminating redundant conversion logic and edge-case errors.",
-      "Drove adoption of AI-assisted development across the team's UI repos — moving from GitHub Copilot and Gemini to Claude for planning, code review, and catching edge cases earlier — and pushed for automating repetitive engineering work wherever it made sense.",
+      {
+        en: "Decoupled Zenoss UI components to support a strategic partnership with Virtana, refactoring core product features into standalone, reusable micro-frontends.",
+        es: "Desacoplé componentes de UI de Zenoss para apoyar una alianza estratégica con Virtana, refactorizando funciones clave del producto en micro-frontends independientes y reutilizables.",
+      },
+      {
+        en: "Led migration to a common query criteria structure across pages, streamlining data flow between multiple APIs and eliminating redundant conversion logic and edge-case errors.",
+        es: "Lideré la migración a una estructura común de criterios de consulta entre páginas, optimizando el flujo de datos entre múltiples APIs y eliminando lógica de conversión redundante y errores en casos límite.",
+      },
+      {
+        en: "Drove adoption of AI-assisted development across the team's UI repos — moving from GitHub Copilot and Gemini to Claude for planning, code review, and catching edge cases earlier — and pushed for automating repetitive engineering work wherever it made sense.",
+        es: "Impulsé la adopción de desarrollo asistido por IA en los repositorios de UI del equipo — migrando de GitHub Copilot y Gemini a Claude para planeación, revisión de código y detección temprana de casos límite — y promoví automatizar trabajo de ingeniería repetitivo donde tuviera sentido.",
+      },
     ],
   },
   {
     company: "Zenoss",
-    role: "Software Engineer",
-    period: "Apr 2020 — Apr 2025",
-    location: "Austin, TX",
-    tags: ["Vue 2 → 3", "Vuetify", "Pinia", "Vite", "GraphQL"],
+    role: { en: "Software Engineer", es: "Ingeniero de Software" },
+    period: { en: "Apr 2020 — Apr 2025", es: "Abr 2020 — Abr 2025" },
+    location: { en: "Austin, TX", es: "Austin, TX" },
+    tags: [
+      { en: "Vue 2 → 3", es: "Vue 2 → 3" },
+      { en: "Vuetify", es: "Vuetify" },
+      { en: "Pinia", es: "Pinia" },
+      { en: "Vite", es: "Vite" },
+      { en: "GraphQL", es: "GraphQL" },
+    ],
     bullets: [
-      "Built reusable components for an IT monitoring cloud application using Vue.js (2 & 3), Vuetify, and GraphQL.",
-      "Designed key features: an events page with graph/pie-chart visualizations, a query-builder inventory page with query-saving, a maintenance-window scheduler, and gauge-chart dashboard tiles.",
-      "Co-led the Vue 2 → 3 migration, moving Webpack → Vite and Vuex → Pinia to improve build speed and cut bundle size.",
-      "Drove test-driven development with a 60% minimum coverage bar per component, using Vue Test Utils, Chai, and Mocha.",
-      "Mentored junior developers on the codebase, best practices, and pair programming.",
+      {
+        en: "Built reusable components for an IT monitoring cloud application using Vue.js (2 & 3), Vuetify, and GraphQL.",
+        es: "Construí componentes reutilizables para una aplicación cloud de monitoreo de IT usando Vue.js (2 y 3), Vuetify y GraphQL.",
+      },
+      {
+        en: "Designed key features: an events page with graph/pie-chart visualizations, a query-builder inventory page with query-saving, a maintenance-window scheduler, and gauge-chart dashboard tiles.",
+        es: "Diseñé funciones clave: una página de eventos con visualizaciones de gráficas y pie charts, una página de inventario con constructor de consultas y guardado de consultas, un programador de ventanas de mantenimiento, y tiles de dashboard con gauge charts.",
+      },
+      {
+        en: "Co-led the Vue 2 → 3 migration, moving Webpack → Vite and Vuex → Pinia to improve build speed and cut bundle size.",
+        es: "Co-lideré la migración de Vue 2 a 3, pasando de Webpack a Vite y de Vuex a Pinia para mejorar la velocidad de build y reducir el tamaño del bundle.",
+      },
+      {
+        en: "Drove test-driven development with a 60% minimum coverage bar per component, using Vue Test Utils, Chai, and Mocha.",
+        es: "Impulsé el desarrollo guiado por pruebas con un mínimo de 60% de cobertura por componente, usando Vue Test Utils, Chai y Mocha.",
+      },
+      {
+        en: "Mentored junior developers on the codebase, best practices, and pair programming.",
+        es: "Mentoricé a desarrolladores junior en el código base, buenas prácticas y programación en pareja.",
+      },
     ],
   },
   {
     company: "Clutch Analytics",
-    role: "Junior Software Developer → Software Engineer",
-    period: "Jul 2018 — Mar 2020",
-    location: "Austin, TX",
-    tags: ["React.js", "Node.js", "MongoDB", "Express"],
+    role: {
+      en: "Junior Software Developer → Software Engineer",
+      es: "Desarrollador de Software Junior → Ingeniero de Software",
+    },
+    period: { en: "Jul 2018 — Mar 2020", es: "Jul 2018 — Mar 2020" },
+    location: { en: "Austin, TX", es: "Austin, TX" },
+    tags: [
+      { en: "React.js", es: "React.js" },
+      { en: "Node.js", es: "Node.js" },
+      { en: "MongoDB", es: "MongoDB" },
+      { en: "Express", es: "Express" },
+    ],
     bullets: [
-      "Built reusable components for a multi-state insurance web application using React.js.",
-      "Worked across the stack with ES6, HTML5, CSS3, jQuery, Node.js, Express, Mongoose, and MongoDB; authored RESTful APIs documented with OpenAPI (Swagger).",
-      "Contributed as part of a 5–7 person Agile team, improving legacy JavaScript performance and readability.",
+      {
+        en: "Built reusable components for a multi-state insurance web application using React.js.",
+        es: "Construí componentes reutilizables para una aplicación web de seguros multi-estado usando React.js.",
+      },
+      {
+        en: "Worked across the stack with ES6, HTML5, CSS3, jQuery, Node.js, Express, Mongoose, and MongoDB; authored RESTful APIs documented with OpenAPI (Swagger).",
+        es: "Trabajé en todo el stack con ES6, HTML5, CSS3, jQuery, Node.js, Express, Mongoose y MongoDB; desarrollé APIs RESTful documentadas con OpenAPI (Swagger).",
+      },
+      {
+        en: "Contributed as part of a 5–7 person Agile team, improving legacy JavaScript performance and readability.",
+        es: "Contribuí como parte de un equipo Ágil de 5 a 7 personas, mejorando el rendimiento y la legibilidad de JavaScript heredado.",
+      },
     ],
   },
 ];
@@ -43,9 +95,15 @@ const roles = [
 
 <section id="experience" class="border-t border-ink-200/60 py-20 dark:border-ink-800/60 md:py-28">
   <div class="mx-auto max-w-5xl px-6">
-    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">02 · Experience</p>
-    <h2 data-split class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+    <p class="reveal font-mono text-sm text-accent-600 dark:text-accent-400">
+      <span data-i18n-lang="en" class="i18n-inline">02 · Experience</span>
+      <span data-i18n-lang="es" class="i18n-inline">02 · Experiencia</span>
+    </p>
+    <h2 data-split data-i18n-lang="en" class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
       Where I've built things.
+    </h2>
+    <h2 data-split data-i18n-lang="es" class="reveal mt-3 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl dark:text-white">
+      Donde he construido cosas.
     </h2>
 
     <div class="mt-14 space-y-10">
@@ -57,17 +115,28 @@ const roles = [
 
             <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
               <h3 class="text-lg font-bold text-ink-950 dark:text-white">
-                {job.role} · <span class="text-accent-600 dark:text-accent-400">{job.company}</span>
+                <span data-i18n-lang="en" class="i18n-inline">{job.role.en}</span>
+                <span data-i18n-lang="es" class="i18n-inline">{job.role.es}</span>
+                {" · "}<span class="text-accent-600 dark:text-accent-400">{job.company}</span>
               </h3>
-              <p class="font-mono text-xs text-ink-500 dark:text-ink-400">{job.period}</p>
+              <p class="font-mono text-xs text-ink-500 dark:text-ink-400">
+                <span data-i18n-lang="en" class="i18n-inline">{job.period.en}</span>
+                <span data-i18n-lang="es" class="i18n-inline">{job.period.es}</span>
+              </p>
             </div>
-            <p class="text-sm text-ink-500 dark:text-ink-400">{job.location}</p>
+            <p class="text-sm text-ink-500 dark:text-ink-400">
+              <span data-i18n-lang="en" class="i18n-inline">{job.location.en}</span>
+              <span data-i18n-lang="es" class="i18n-inline">{job.location.es}</span>
+            </p>
 
             <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
               {job.bullets.map((bullet) => (
                 <li class="flex gap-2">
                   <span class="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-ink-400" />
-                  <span>{bullet}</span>
+                  <span>
+                    <span data-i18n-lang="en" class="i18n-inline">{bullet.en}</span>
+                    <span data-i18n-lang="es" class="i18n-inline">{bullet.es}</span>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -75,7 +144,8 @@ const roles = [
             <div class="mt-4 flex flex-wrap gap-2">
               {job.tags.map((tag) => (
                 <span class="rounded-full bg-ink-100 px-3 py-1 text-xs font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300">
-                  {tag}
+                  <span data-i18n-lang="en" class="i18n-inline">{tag.en}</span>
+                  <span data-i18n-lang="es" class="i18n-inline">{tag.es}</span>
                 </span>
               ))}
             </div>

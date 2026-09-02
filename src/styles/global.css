@@ -28,6 +28,29 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* i18n: language toggle. See the detection script in Layout.astro <head>
+   and the toggle button in NavBar.vue. Content for both languages is always
+   in the DOM; these rules show/hide it based on the html[data-lang] attribute. */
+[data-i18n-lang] {
+  display: none;
+}
+
+:root:not([data-lang="es"]) [data-i18n-lang="en"] {
+  display: block;
+}
+
+:root[data-lang="es"] [data-i18n-lang="es"] {
+  display: block;
+}
+
+:root:not([data-lang="es"]) [data-i18n-lang="en"].i18n-inline {
+  display: inline;
+}
+
+:root[data-lang="es"] [data-i18n-lang="es"].i18n-inline {
+  display: inline;
+}
+
 html {
   scroll-behavior: smooth;
 }

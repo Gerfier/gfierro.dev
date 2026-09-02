@@ -2,11 +2,11 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: { en: "About", es: "Acerca de" } },
+  { href: "#experience", label: { en: "Experience", es: "Experiencia" } },
+  { href: "#skills", label: { en: "Skills", es: "Habilidades" } },
+  { href: "#projects", label: { en: "Projects", es: "Proyectos" } },
+  { href: "#contact", label: { en: "Contact", es: "Contacto" } },
 ];
 
 const menuOpen = ref(false);
@@ -14,6 +14,7 @@ const isDark = ref(true);
 const scrolled = ref(false);
 const activeSection = ref("");
 const themeBtn = ref(null);
+const lang = ref("en");
 
 let sectionObserver;
 
@@ -41,12 +42,21 @@ function toggleTheme(event) {
   document.startViewTransition(apply);
 }
 
+function toggleLang() {
+  const next = lang.value === "es" ? "en" : "es";
+  lang.value = next;
+  document.documentElement.setAttribute("data-lang", next);
+  document.documentElement.setAttribute("lang", next);
+  localStorage.setItem("lang", next);
+}
+
 function closeMenu() {
   menuOpen.value = false;
 }
 
 onMounted(() => {
   isDark.value = document.documentElement.classList.contains("dark");
+  lang.value = document.documentElement.getAttribute("data-lang") === "es" ? "es" : "en";
 
   const onScroll = () => {
     scrolled.value = window.scrollY > 8;
@@ -103,7 +113,7 @@ onMounted(() => {
                 : 'text-ink-600 hover:text-accent-500 dark:text-ink-300 dark:hover:text-accent-400'
             "
           >
-            {{ link.label }}
+            {{ link.label[lang] }}
             <span
               v-if="activeSection === link.href"
               class="absolute -bottom-1.5 left-0 h-0.5 w-full rounded-full bg-accent-500"
@@ -114,10 +124,19 @@ onMounted(() => {
 
       <div class="flex items-center gap-3">
         <button
+          @click="toggleLang"
+          type="button"
+          :aria-label="lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'"
+          class="grid h-9 w-9 place-items-center rounded-full border border-ink-200 font-mono text-xs font-semibold text-ink-600 transition-colors hover:border-accent-500 hover:text-accent-500 dark:border-ink-700 dark:text-ink-300 dark:hover:border-accent-400 dark:hover:text-accent-400"
+        >
+          {{ lang === "es" ? "EN" : "ES" }}
+        </button>
+
+        <button
           ref="themeBtn"
           @click="toggleTheme"
           type="button"
-          aria-label="Toggle color theme"
+          :aria-label="lang === 'es' ? 'Alternar tema de color' : 'Toggle color theme'"
           class="grid h-9 w-9 place-items-center rounded-full border border-ink-200 text-ink-600 transition-colors hover:border-accent-500 hover:text-accent-500 dark:border-ink-700 dark:text-ink-300 dark:hover:border-accent-400 dark:hover:text-accent-400"
         >
           <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4">
@@ -132,7 +151,7 @@ onMounted(() => {
         <button
           @click="menuOpen = !menuOpen"
           type="button"
-          aria-label="Toggle navigation menu"
+          :aria-label="lang === 'es' ? 'Alternar menú de navegación' : 'Toggle navigation menu'"
           class="grid h-9 w-9 place-items-center rounded-full border border-ink-200 text-ink-600 md:hidden dark:border-ink-700 dark:text-ink-300"
         >
           <svg v-if="!menuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4">
@@ -168,7 +187,7 @@ onMounted(() => {
                 : 'text-ink-700 hover:bg-accent-500/10 hover:text-accent-500 dark:text-ink-200'
             "
           >
-            {{ link.label }}
+            {{ link.label[lang] }}
           </a>
         </li>
       </ul>
