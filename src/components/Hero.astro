@@ -67,13 +67,24 @@ import gerardOutdoors from "../assets/gerard-outdoors.png";
           <a
             href={`${import.meta.env.BASE_URL}resume.pdf`}
             download
-            class="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-950/10 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-ink-950"
+            data-i18n-lang="en"
+            class="i18n-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-950/10 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-ink-950"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
             </svg>
-            <span data-i18n-lang="en" class="i18n-inline">Download résumé</span>
-            <span data-i18n-lang="es" class="i18n-inline">Descargar currículum</span>
+            Download résumé
+          </a>
+          <a
+            href={`${import.meta.env.BASE_URL}resume-es.pdf`}
+            download
+            data-i18n-lang="es"
+            class="i18n-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-950/10 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-ink-950"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+            </svg>
+            Descargar currículum
           </a>
           <a
             href="#projects"

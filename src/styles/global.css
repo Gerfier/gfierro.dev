@@ -51,6 +51,14 @@
   display: inline;
 }
 
+:root:not([data-lang="es"]) [data-i18n-lang="en"].i18n-flex {
+  display: inline-flex;
+}
+
+:root[data-lang="es"] [data-i18n-lang="es"].i18n-flex {
+  display: inline-flex;
+}
+
 html {
   scroll-behavior: smooth;
 }
