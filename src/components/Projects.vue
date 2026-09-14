@@ -53,26 +53,27 @@ const projects = [
     tags: [{ en: "React", es: "React" }, { en: "Node.js", es: "Node.js" }, { en: "Socket.io", es: "Socket.io" }, { en: "PWA", es: "PWA" }],
     link: null,
   },
-  {
-    title: { en: "Booking site for a family resort", es: "Sitio de reservaciones para balneario familiar" },
-    company: { en: "Los Filtros · Gibrando's Park", es: "Los Filtros · Gibrando's Park" },
-    description: {
-      en: "Built and shipped a static booking site for a family-run resort in San Francisco de Conchos, Chihuahua — cabin/camping pricing, a no-login admin panel for editing rates and events, and WhatsApp-based reservations that also create Google Calendar events automatically. No server, no hosting cost.",
-      es: "Construí y publiqué un sitio de reservaciones estático para un balneario familiar en San Francisco de Conchos, Chihuahua — precios de cabañas y camping, un panel de administración sin contraseña para editar precios y eventos, y reservaciones por WhatsApp que también crean eventos en Google Calendar automáticamente. Sin servidor, sin costo de hosting.",
-    },
-    tags: [{ en: "JavaScript", es: "JavaScript" }, { en: "GitHub Pages", es: "GitHub Pages" }, { en: "Google Apps Script", es: "Google Apps Script" }],
-    link: "https://github.com/Gerfier/los-filtros-gibrandos-park",
-  },
-  {
-    title: { en: "Marketing site for a specialty coffee shop", es: "Sitio de marketing para cafetería de especialidad" },
-    company: { en: "Nómada Café de Especialidad", es: "Nómada Café de Especialidad" },
-    description: {
-      en: "Designed and built a single-page marketing site for a specialty coffee shop in Ciudad Camargo, Chihuahua — real photos sourced from their Instagram, structured data for local SEO and Google Maps, scroll-reveal animations, and a fully responsive layout. Plain HTML/CSS/JS, no build step.",
-      es: "Diseñé y construí un sitio de una sola página para una cafetería de especialidad en Ciudad Camargo, Chihuahua — fotos reales tomadas de su Instagram, datos estructurados para SEO local y Google Maps, animaciones al hacer scroll, y un diseño completamente responsivo. HTML/CSS/JS puro, sin build.",
-    },
-    tags: [{ en: "HTML/CSS", es: "HTML/CSS" }, { en: "JavaScript", es: "JavaScript" }, { en: "SEO", es: "SEO" }],
-    link: "https://github.com/Gerfier/nomada-cafe",
-  },
+  // Hidden until the owners approve hosting their sites publicly — keep for later:
+  // {
+  //   title: { en: "Booking site for a family resort", es: "Sitio de reservaciones para balneario familiar" },
+  //   company: { en: "Los Filtros · Gibrando's Park", es: "Los Filtros · Gibrando's Park" },
+  //   description: {
+  //     en: "Built and shipped a static booking site for a family-run resort in San Francisco de Conchos, Chihuahua — cabin/camping pricing, a no-login admin panel for editing rates and events, and WhatsApp-based reservations that also create Google Calendar events automatically. No server, no hosting cost.",
+  //     es: "Construí y publiqué un sitio de reservaciones estático para un balneario familiar en San Francisco de Conchos, Chihuahua — precios de cabañas y camping, un panel de administración sin contraseña para editar precios y eventos, y reservaciones por WhatsApp que también crean eventos en Google Calendar automáticamente. Sin servidor, sin costo de hosting.",
+  //   },
+  //   tags: [{ en: "JavaScript", es: "JavaScript" }, { en: "GitHub Pages", es: "GitHub Pages" }, { en: "Google Apps Script", es: "Google Apps Script" }],
+  //   link: "https://github.com/Gerfier/los-filtros-gibrandos-park",
+  // },
+  // {
+  //   title: { en: "Marketing site for a specialty coffee shop", es: "Sitio de marketing para cafetería de especialidad" },
+  //   company: { en: "Nómada Café de Especialidad", es: "Nómada Café de Especialidad" },
+  //   description: {
+  //     en: "Designed and built a single-page marketing site for a specialty coffee shop in Ciudad Camargo, Chihuahua — real photos sourced from their Instagram, structured data for local SEO and Google Maps, scroll-reveal animations, and a fully responsive layout. Plain HTML/CSS/JS, no build step.",
+  //     es: "Diseñé y construí un sitio de una sola página para una cafetería de especialidad en Ciudad Camargo, Chihuahua — fotos reales tomadas de su Instagram, datos estructurados para SEO local y Google Maps, animaciones al hacer scroll, y un diseño completamente responsivo. HTML/CSS/JS puro, sin build.",
+  //   },
+  //   tags: [{ en: "HTML/CSS", es: "HTML/CSS" }, { en: "JavaScript", es: "JavaScript" }, { en: "SEO", es: "SEO" }],
+  //   link: "https://github.com/Gerfier/nomada-cafe",
+  // },
   {
     title: { en: "Cross-border money & tax companion", es: "Compañero financiero y fiscal transfronterizo" },
     company: { en: "Personal project", es: "Proyecto personal" },
