@@ -53,6 +53,36 @@ const projects = [
     tags: [{ en: "React", es: "React" }, { en: "Node.js", es: "Node.js" }, { en: "Socket.io", es: "Socket.io" }, { en: "PWA", es: "PWA" }],
     link: null,
   },
+  {
+    title: { en: "Booking site for a family resort", es: "Sitio de reservaciones para balneario familiar" },
+    company: { en: "Los Filtros · Gibrando's Park", es: "Los Filtros · Gibrando's Park" },
+    description: {
+      en: "Built and shipped a static booking site for a family-run resort in San Francisco de Conchos, Chihuahua — cabin/camping pricing, a no-login admin panel for editing rates and events, and WhatsApp-based reservations that also create Google Calendar events automatically. No server, no hosting cost.",
+      es: "Construí y publiqué un sitio de reservaciones estático para un balneario familiar en San Francisco de Conchos, Chihuahua — precios de cabañas y camping, un panel de administración sin contraseña para editar precios y eventos, y reservaciones por WhatsApp que también crean eventos en Google Calendar automáticamente. Sin servidor, sin costo de hosting.",
+    },
+    tags: [{ en: "JavaScript", es: "JavaScript" }, { en: "GitHub Pages", es: "GitHub Pages" }, { en: "Google Apps Script", es: "Google Apps Script" }],
+    link: "https://github.com/Gerfier/los-filtros-gibrandos-park",
+  },
+  {
+    title: { en: "Marketing site for a specialty coffee shop", es: "Sitio de marketing para cafetería de especialidad" },
+    company: { en: "Nómada Café de Especialidad", es: "Nómada Café de Especialidad" },
+    description: {
+      en: "Designed and built a single-page marketing site for a specialty coffee shop in Ciudad Camargo, Chihuahua — real photos sourced from their Instagram, structured data for local SEO and Google Maps, scroll-reveal animations, and a fully responsive layout. Plain HTML/CSS/JS, no build step.",
+      es: "Diseñé y construí un sitio de una sola página para una cafetería de especialidad en Ciudad Camargo, Chihuahua — fotos reales tomadas de su Instagram, datos estructurados para SEO local y Google Maps, animaciones al hacer scroll, y un diseño completamente responsivo. HTML/CSS/JS puro, sin build.",
+    },
+    tags: [{ en: "HTML/CSS", es: "HTML/CSS" }, { en: "JavaScript", es: "JavaScript" }, { en: "SEO", es: "SEO" }],
+    link: "https://github.com/Gerfier/nomada-cafe",
+  },
+  {
+    title: { en: "Cross-border money & tax companion", es: "Compañero financiero y fiscal transfronterizo" },
+    company: { en: "Personal project", es: "Proyecto personal" },
+    description: {
+      en: "A React app for tracking finances as a contractor living between the US and Mexico — dual-currency budgeting, net worth, US/Mexico tax context, and residency day-counting. Vercel serverless functions keep the Anthropic API key server-side for statement imports and live market/FX snapshots; all data stays in the browser.",
+      es: "Una app en React para llevar tus finanzas como contratista que vive entre EE.UU. y México — presupuesto en dos monedas, patrimonio neto, contexto fiscal de EE.UU./México, y conteo de días de residencia. Funciones serverless de Vercel mantienen la llave de la API de Anthropic en el servidor para importar estados de cuenta y obtener mercado/tipo de cambio en vivo; todos los datos se quedan en el navegador.",
+    },
+    tags: [{ en: "React", es: "React" }, { en: "Vite", es: "Vite" }, { en: "Vercel", es: "Vercel" }],
+    link: "https://github.com/Gerfier/clearline",
+  },
 ];
 
 const allTags = computed(() => {
@@ -149,6 +179,21 @@ function onCardLeave(event) {
             <span data-i18n-lang="es" class="i18n-inline">{{ tag.es }}</span>
           </span>
         </div>
+        <a
+          v-if="project.link"
+          :href="project.link"
+          target="_blank"
+          rel="noreferrer"
+          class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 transition-colors hover:text-accent-500 dark:text-accent-400"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path
+              d="M12 2C6.48 2 2 6.58 2 12.25c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.65.34-1.11.62-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.76 1.05a9.36 9.36 0 0 1 5.02 0c1.92-1.32 2.76-1.05 2.76-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
+            />
+          </svg>
+          <span data-i18n-lang="en" class="i18n-inline">View on GitHub</span>
+          <span data-i18n-lang="es" class="i18n-inline">Ver en GitHub</span>
+        </a>
       </article>
     </TransitionGroup>
 
